@@ -1,0 +1,12 @@
+doctype
+html
+    head
+        include ./includes/head.jade
+        link(rel='stylesheet',type="text",href="/css/dashboard.css")
+    body
+        ul#members
+            for member in members
+                li.item-member
+                    div.avatar
+                        image(src='http://placehold.it/200x200')
+                    div.intro= member.name

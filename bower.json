@@ -1,0 +1,22 @@
+{
+  "name": "wbye.github.com",
+  "version": "0.0.0",
+  "authors": [
+    "wbye <785534746@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "~2.1.4",
+    "jquery.scrollTo": "~2.1.2",
+    "i18next": "~1.11.0",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.3"
+  }
+}

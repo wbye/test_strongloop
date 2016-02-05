@@ -1,0 +1,46 @@
+doctype
+html
+    head
+        include ./includes/head.jade
+        link(rel='stylesheet',type="text",href="/css/dashboard.css")
+    body
+        .ui.container
+            .ui.segment.padding
+                .ui.header
+                    h1 会员列表
+                    .sub.header 查看/编辑会员信息
+            table.ui.padded.celled.table
+                thead
+                    th 会员
+                    th 加入时间
+                    th 启用/禁用
+                    th 操作
+                tbody
+                    for member in members
+                        tr(data-member-id="#{member.id}")
+                            td
+                                h4.ui.image.header
+                                    image.ui.rounded.image(src="http://placehold.it/100x100")
+                                    .content= member.name
+                                        .sub.header xxx
+                            td 2015/01/10
+                            td
+                                .ui.toggle.checkbox
+                                    input(name="enable",type="checkbox",checked="#{member.enable}")
+                                    label
+                            td
+                                .ui.button.labeled.icon.button.small
+                                    i.icon.edit
+                                    span 编辑
+                                .ui.button.labeled.icon.button.small.red
+                                    i.icon.remove.user
+                                    span 删除
+                tfoot.full-wdith
+                    tr
+                        th(colspan=4)
+                            div.ui.right.floated.bigger.primary.labeled.icon.button#add-user
+                                i.icon.user.add
+                                span Add Member
+        include ./includes/footer_dailog.jade
+    include ./includes/foot.jade
+    script(type="text/javascript",src="/js/admin/member.js")

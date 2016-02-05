@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#members{
+  $memberSize:200px;
+  $memberMargin:40px;
+  margin: 0 auto;
+  text-align: center;
+  .item-member{
+    margin: 40px;
+    float: left;
+    display: inline-block;
+    .avatar{
+      width: 200px;
+      height: 200px;
+    }
+    .avatar img{
+      border-radius: 100px;
+    }
+  }
+  $memberWidth:$memberMargin*2+$memberSize;
+
+  //media screen
+  @media screen and (min-width:1800px) {
+    &{
+      width:floor(1800px/$memberWidth)*$memberWidth;
+    }
+  }
+  @each $number in 5,4,3,2,1{
+    @media screen and (max-width:($number+1)*$memberWidth)  {
+      &{
+        width:$number*$memberWidth;
+      }
+    }
+  }
+}
