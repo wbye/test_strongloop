@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var app = express();
 var port = process.env.PORT||'8080';
@@ -13,9 +14,11 @@ db.once('open', function() {
     // we're connected!
     console.log("we connect!")
 });
-//ÉèÖÃÊÓÍ¼Ä¿Â¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ä¿Â¼
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views","./views");
-//ÉèÖÃÄ£°åÒıÇæ
+//ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 app.set("view engine","jade");
 //set static
 if(port==='8080'){
@@ -26,7 +29,7 @@ if(port==='8080'){
 
 routes(app);
 
-//ÉèÖÃ¼àÌı¶Ë¿Ú
+//ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½Ë¿ï¿½
 app.listen(port,function(){
    console.log("node server run at "+port);
 });

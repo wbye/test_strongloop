@@ -1,0 +1,24 @@
+#my-dialog{
+  .ui.image{
+    min-height: 200px;
+  }
+}
+.ui.form.member{
+  margin: 20px auto;
+  height:220px;
+  .left-info{
+    float: left;
+    width: 400px;
+  }
+  .right-info{
+    float: right;
+    img{
+      position: relative;
+      top:8px;
+    }
+  }
+  &:after{
+    display: block;
+    clear: both;
+  }
+}

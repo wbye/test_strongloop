@@ -14,8 +14,8 @@ gulp.task('serve', ['sass'], function() {
         proxy:"localhost:8080"
     });
 
-    gulp.watch("src/scss/*.scss", ['sass']);
-    gulp.watch(["src/js/**/*.js","app/*.html"]).on('change', browserSync.reload);
+    gulp.watch("src/scss/**/*.scss", ['sass']);
+    gulp.watch(["src/js/**/*.js","views/**/*.jade"]).on('change', browserSync.reload);
 });
 
 /**

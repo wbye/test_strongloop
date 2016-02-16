@@ -3,7 +3,7 @@ var Member = require("./../model/member");
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
-        Member.find({"enable":true},function (err,members) {
+        Member.find({"enable":1},function (err,members) {
             res.render("web/dashboard",{
                 members:members
             });
@@ -17,13 +17,20 @@ module.exports = function (app) {
         });
     });
     app.get("/admin/member", function (req,res) {
-        Member.find(function (err,members) {
+        Member.find({},function (err,members) {
             res.render("admin/member",{
                 members:members
             });
         });
     });
+
     app.post("/admin/member", function (req,res) {
-        console.log(req);
+        Member.create(req.body, function (err,member) {
+            if(err){
+                res.status(400).sendStatus("400");
+            }else{
+                res.status(200).sendStatus(200);
+            }
+        });
     });
 };
