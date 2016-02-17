@@ -13,7 +13,7 @@ define([
         toggle: function () {
             this.save({enable: !this.get("enable")});
         },
-        url:'/admin/member'
+        urlRoot:'/admin/member'
     });
 
     return Member;

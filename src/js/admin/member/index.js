@@ -2,10 +2,17 @@ require([
     'underscore',
     'jquery',
     'semanticUI',
-    'common/model/member'
-],function (_,$,semanticUI,Member) {
+    'common/model/member',
+    'common/view/member/view'
+],function (_,$,semanticUI,Member,MemberView) {
     var tplAdd = _.template($("#add").html());
 
+     $(".ui.table").append(new MemberView({
+         model:new Member({
+             id:"1001",
+             name:"wbye222"
+         })
+     }).render().$el);
     //bind events
     $("#add-user").click(function () {
         $("#my-dialog").html(tplAdd()).modal({
