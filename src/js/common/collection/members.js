@@ -4,7 +4,8 @@ define([
 ], function (Backbone, Member) {
     var Members = Backbone.Collection.extend({
         model: Member,
-        comparator:"createAt"
+        comparator:"createAt",
+        url:"/1.0/member"
     });
 
     return Members;

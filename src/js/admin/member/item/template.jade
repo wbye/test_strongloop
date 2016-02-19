@@ -2,11 +2,11 @@ td
     h4.ui.image.header
         image.ui.rounded.image(src="http://placehold.it/100x100")
         .content  <%=name%>
-            .sub.header xxx
-td 2015/01/10
+            .sub.header <%=gender%>
+td <%=createAt%>
 td
     .ui.toggle.checkbox
-        input(name="enable",type="checkbox",checked="<%=enable=>")
+        input(name="enable",type="checkbox")
         label
 td
     .ui.button.labeled.icon.button.small.edit

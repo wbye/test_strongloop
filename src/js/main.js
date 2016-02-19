@@ -12,7 +12,8 @@ var require  = {
         backbone: 'lib/backbone/backbone-min',
         tpl: 'lib/requirejs-tpl/tpl',
         text: 'lib/text/text',
-        semanticUI:"lib/semantic/dist/semantic"
+        semanticUI:"lib/semantic/dist/semantic",
+        moment:"lib/moment/moment"
     },
     shim: {
         jquery: {

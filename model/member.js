@@ -1,7 +1,5 @@
 var mongoose = require("mongoose");
-var Member = mongoose.model("Member",{
-    name:String,
-    gender:Number
-});
+var mongooseSchema = require('./../schema/member');
+var Member = mongoose.model("Member",mongooseSchema);
 
 module.exports = Member;

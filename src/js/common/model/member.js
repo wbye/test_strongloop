@@ -6,6 +6,7 @@ define([
 ], function (Backbone) {
     var Member = Backbone.Model.extend({
         //默认属性
+        idAttribute:"_id",
         defaults: {
             enable: true,
             gender: 0
@@ -13,7 +14,7 @@ define([
         toggle: function () {
             this.save({enable: !this.get("enable")});
         },
-        urlRoot:'/admin/member'
+        urlRoot:'/1.0/member'
     });
 
     return Member;
