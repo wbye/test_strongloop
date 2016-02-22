@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var app = express();
-var port = process.env.PORT||'8080';
+var port = process.env.PORT||'4000';
 var routes = require("./routes");
 var Member = require("./model/member");
 var db;
@@ -21,7 +21,7 @@ app.set("views","./views");
 //����ģ������
 app.set("view engine","jade");
 //set static
-if(port==='8080'){
+if(port==='4000'){
     app.use(express.static(__dirname + '/src'));
     app.use(express.static(__dirname + '/files'));
     app.use(express.static(__dirname + '/uploads'));
