@@ -3,7 +3,7 @@ var Config = require("./../config/StatusVar");
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
-        Member.find({"enable":1},function (err,members) {
+        Member.find({"enable":true},function (err,members) {
             res.render("web/dashboard",{
                 members:members
             });

@@ -9,7 +9,8 @@ define([
         template:template,
         events:{
             "click .button.edit":"handleEditClick",
-            "click .button.delete":"handleDeleteClick"
+            "click .button.delete":"handleDeleteClick",
+            "click .ui.toggle.checkbox":"handleClickEnable"
         },
         initialize: function () {
             this.listenTo(this.model,"change",this.render);
@@ -33,17 +34,19 @@ define([
             _.extend(tplInfo,{
                 createAt: new moment(tplInfo.createAt).format("YYYY-MM-DD HH:MM:SS"),
                 gender:globalConfig['Gender'][tplInfo.gender],
-                enable:globalConfig['Enable'][tplInfo.enable],
+                enable:tplInfo.enable
+                //enable:globalConfig['Enable'][tplInfo.enable?1:0],
             });
             this.$el.html(this.template(tplInfo));
             if(tplInfo.enable){
-                console.log(tplInfo.enable);
                 this.$("input[type=checkbox]").attr("checked","checked");
             }
             this.$el.find(".checkbox").checkbox();
             //render dropdown
             return this;
+        },
+        handleClickEnable: function () {
+            this.model.toggle();
         }
-
     });
 });

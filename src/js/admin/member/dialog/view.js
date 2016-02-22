@@ -18,6 +18,8 @@ define([
             var tplInfo = this.model.toJSON();
 
             this.$el.html(this.template(tplInfo));
+            this.$("select[name=gender]").val(tplInfo.gender);
+            this.$("select[name=enable]").val(tplInfo.enable?'1':'0');
             this.prepareDialog();
 
             return  this;
@@ -37,6 +39,17 @@ define([
         prepareDialog: function () {
             var self = this;
 
+            //judge edit or add
+            if(this.model.get([this.model.idAttribute])){
+                //edit
+                this.$(".header").text('编辑');
+                this.$(".ui.button.approve").text('保存');
+            }else{
+                //add
+                this.$(".header").text('添加');
+                this.$(".ui.button.approve").text('创建');
+            }
+            
             //bind events
             this.$el.modal({
                 //blurring: true,
