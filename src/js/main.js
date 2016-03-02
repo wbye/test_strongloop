@@ -13,12 +13,16 @@ var require  = {
         tpl: 'lib/requirejs-tpl/tpl',
         text: 'lib/text/text',
         semanticUI:"lib/semantic/dist/semantic",
-        moment:"lib/moment/moment"
+        moment:"lib/moment/moment",
+        component:'common/component',
+        model:'common/model',
+        collection:'common/collection',
+        pace:'lib/PACE/pace'
     },
     shim: {
         jquery: {
             deps: [],
-            exports: 'jQuery'
+            exports: 'jquery'
         },
         semanticUI:{
             deps:['jquery']

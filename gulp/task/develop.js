@@ -3,16 +3,20 @@ var browserSync = require('browser-sync').create();
 var sass = require("gulp-sass");
 var notify = require("gulp-notify");
 var jade = require("gulp-jade");
+var config = require('./../../config/Server');
+var exec = require("child_process").exec;
+var supervisor = require("gulp-supervisor");
+
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['node','sass'], function() {
 
     //create server
     browserSync.init({
         //server:{
         //    "baseDir":"./app"
         //},
-        proxy:"localhost:8080"
+        proxy:"localhost:"+config.port
     });
 
     gulp.watch("src/scss/**/*.scss", ['sass']);
@@ -38,4 +42,23 @@ gulp.task("jade", function () {
            pretty: true
        }))
        .pipe(gulp.dest("src/js/"));
+});
+
+gulp.task('node', function (complete) {
+
+    supervisor("app.js",{
+        args: ["--dev"],
+        watch: ["app"],
+        ignore: ["tasks", "src", "node_modules", "public", "views"],
+        pollInterval: 500,
+        extensions: ["js"],
+        exec: "node",
+        debug: false,
+        debugBrk: false,
+        harmony: true,
+        noRestartOn: "exit",
+        forceWatch: true,
+        quiet: false
+    });
+    complete();
 });
