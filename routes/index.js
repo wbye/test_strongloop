@@ -65,4 +65,8 @@ module.exports = function (app) {
             }
         });
     });
+
+    app.get(/^\/(\w+)(\/\w+)$/, function (req, res) {
+        res.render("web/"+req.params[0]+req.params[1],{});
+    });
 };
