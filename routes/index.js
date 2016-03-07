@@ -1,5 +1,6 @@
 var Member = require("./../model/member");
 var Config = require("./../config/StatusVar");
+var Hashes = require('jshashes')
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
@@ -69,12 +70,14 @@ module.exports = function (app) {
         //
         var token = 'wbyealiyun123';
         //微信加密签名
-        var signature = req.params.signature;
-        var timestamp = req.params.timestamp;
-        var nonce = req.params.nonce;
-        var echostr = req.params.echostr;
+        var signature = req.query.signature;
+        var timestamp = req.query.timestamp;
+        var nonce = req.query.nonce;
+        var echostr = req.query.echostr;
         var validateStr = [token,timestamp,nonce].sort().join('');
 
+        validateStr = new Hashes.SHA1().b64(validateStr);
+        console.log(validateStr);
         if(validateStr===signature){
             res.send(echostr);
         }else{
