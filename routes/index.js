@@ -1,6 +1,5 @@
 var Member = require("./../model/member");
 var Config = require("./../config/StatusVar");
-var Hashes = require('jshashes')
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
@@ -75,10 +74,12 @@ module.exports = function (app) {
         var nonce = req.query.nonce;
         var echostr = req.query.echostr;
         var validateStr = [token,timestamp,nonce].sort().join('');
+        var sha1 = require("crypto").createHash('sha1');
 
         console.log(req.query);
         console.log(validateStr);
-        validateStr = new Hashes.SHA1().b64(validateStr);
+        validateStr = sha1.update(validateStr);
+        validateStr = sha1.digest("hex");
         console.log(validateStr);
         console.log(signature);
         if(validateStr===signature){
