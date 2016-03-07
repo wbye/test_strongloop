@@ -65,8 +65,25 @@ module.exports = function (app) {
             }
         });
     });
+    app.get("/checkSignature", function (req,res) {
+        //
+        var token = 'wbyealiyun123';
+        //微信加密签名
+        var signature = req.params.signature;
+        var timestamp = req.params.timestamp;
+        var nonce = req.params.nonce;
+        var echostr = req.params.echostr;
+        var validateStr = [token,timestamp,nonce].sort().join('');
+
+        if(validateStr===signature){
+            res.send(echostr);
+        }else{
+            res.send("who are you?");
+        }
+    });
 
     app.get(/^\/(\w+)(\/\w+)$/, function (req, res) {
         res.render("web/"+req.params[0]+req.params[1],{});
     });
+
 };
