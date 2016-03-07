@@ -1,0 +1,28 @@
+.swiper-container {
+  //width: 600px;
+  height: 300px;
+  .swiper-slide {
+    background: gray;
+    border:1px solid red;
+  }
+}
+
+.activity-choose-item {
+  margin-top: 2em;
+  .pictures-shortcut {
+    float:left;
+    width:50%;
+    height: 300px;
+  }
+  .plan-details {
+    float:left;
+    width:50%;
+    height: 300px;
+    background: red;
+  }
+  &:after {
+    display: block;
+    height: 1px;
+    clear: both;
+  }
+}

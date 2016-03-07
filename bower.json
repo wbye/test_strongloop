@@ -22,6 +22,7 @@
     "text": "requirejs-text#^2.0.14",
     "requirejs-tpl": "*",
     "moment": "^2.11.2",
-    "PACE": "pace#^1.0.2"
+    "PACE": "pace#^1.0.2",
+    "Swiper": "swiper#^3.3.1"
   }
 }
