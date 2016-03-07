@@ -76,8 +76,11 @@ module.exports = function (app) {
         var echostr = req.query.echostr;
         var validateStr = [token,timestamp,nonce].sort().join('');
 
+        console.log(req.query);
+        console.log(validateStr);
         validateStr = new Hashes.SHA1().b64(validateStr);
         console.log(validateStr);
+        console.log(signature);
         if(validateStr===signature){
             res.send(echostr);
         }else{
