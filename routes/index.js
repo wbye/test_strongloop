@@ -66,7 +66,6 @@ module.exports = function (app) {
         });
     });
     app.get("/checkSignature", function (req,res) {
-        //
         var token = 'wbyealiyun123';
         //微信加密签名
         var signature = req.query.signature;
@@ -76,12 +75,8 @@ module.exports = function (app) {
         var validateStr = [token,timestamp,nonce].sort().join('');
         var sha1 = require("crypto").createHash('sha1');
 
-        console.log(req.query);
-        console.log(validateStr);
         validateStr = sha1.update(validateStr);
         validateStr = sha1.digest("hex");
-        console.log(validateStr);
-        console.log(signature);
         if(validateStr===signature){
             res.send(echostr);
         }else{
