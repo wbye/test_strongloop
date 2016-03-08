@@ -55,11 +55,13 @@ define([
                 //blurring: true,
                 onApprove: function ($el) {
                     self.getValue();
+
                     self.model.save(null,{
                         success: function () {
                             if(self.collection){
                                 self.collection.fetch();
                             }
+                            self.$el.modal("hide");
                             console.log("success");
                         },
                         error: function () {
@@ -67,8 +69,11 @@ define([
                         },
                         parse:false
                     });
-
-                    //return false;
+                    //if(!self.model.isValid()){
+                    //    alert("名字必填");
+                    //    return false;
+                    //}
+                    return false;
                 },
                 onDeny: function ($el) {
                 }

@@ -19,6 +19,16 @@ define([
         sync: function () {
             pace.restart();
             Backbone.Model.prototype.sync.apply(this,arguments);
+        },
+        validate: function(attributes){
+            if(!attributes.name){
+                return "名字必填";
+            }
+        },
+        initialize: function () {
+            this.on("invalid", function (model,error) {
+                console.log(error);
+            });
         }
     });
 
