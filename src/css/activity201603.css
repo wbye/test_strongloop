@@ -1,24 +1,38 @@
 .swiper-container {
-  height: 300px; }
+  height: 440px; }
   .swiper-container .swiper-slide {
-    background: gray;
-    border: 1px solid red; }
+    background: gray; }
   .swiper-container .swiper-pagination-bullet {
+    display: inline-block;
     width: 18px;
-    height: 18px; }
+    height: 18px;
+    opacity: 0.8;
+    background: #fff; }
+    .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background: #2185d0; }
 
 .activity-choose-item {
-  margin-top: 2em; }
+  margin: 2em 0 3em 0; }
+  .activity-choose-item:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 1px; }
   .activity-choose-item .pictures-shortcut {
     float: left;
-    width: 50%;
-    height: 300px; }
+    width: 61.8%; }
   .activity-choose-item .plan-details {
     float: left;
-    width: 50%;
-    height: 300px;
+    width: 38.2%;
+    height: 440px;
     background: red; }
+  .activity-choose-item.pic-pull-right .pictures-shortcut {
+    float: right; }
+  .activity-choose-item.pic-pull-right .plan-details {
+    float: left; }
   .activity-choose-item:after {
     display: block;
     height: 1px;
     clear: both; }
+  .activity-choose-item .swiper-slide {
+    background-size: cover; }
