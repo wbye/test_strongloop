@@ -31,9 +31,10 @@
   }
   .plan-details {
     float:left;
+    padding:2em;
     width:38.2%;
     height: 440px;
-    background: red;
+    background: transparentize(gray,0.78);
   }
   &.pic-pull-right{
     .pictures-shortcut{
@@ -50,5 +51,9 @@
   }
   .swiper-slide{
     background-size: cover;
+    transition:transform 1s;
+    &:hover{
+      transform: scale(1.2);
+    }
   }
 }

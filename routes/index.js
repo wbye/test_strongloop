@@ -17,6 +17,14 @@ module.exports = function (app) {
             });
         });
     });
+    app.get("/members", function (req,res) {
+        Member.find(function (err,members) {
+            res.render("admin/member",{
+                members:members,
+                Config:JSON.stringify(Config)
+            });
+        });
+    });
     app.get("/admin/member", function (req,res) {
         res.render("admin/member");
     });

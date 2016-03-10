@@ -9,7 +9,7 @@ define([
         template: template,
         tagName: "div",
         className: "activity-choose-item",
-        initialize: function () {
+        initialize: function (options) {
             var self = this;
 
             this.on({
@@ -30,6 +30,17 @@ define([
                 }
             });
 
+            if(options.pics){
+                this.pics = options.pics;
+                this.preloadImageResource();
+            }
+        },
+        preloadImageResource: function () {
+            _.each(this.pics, function (item) {
+                var image = new Image();
+
+                image.src = item;
+            });
         },
         setViewState: function (state) {
             switch (state) {
@@ -54,19 +65,15 @@ define([
 
             return this;
         },
-        prepareImage: function () {
-            var pics = [
-                "/image/coleflower1.jpg",
-                "/image/coleflower2.jpg",
-                "/image/coleflower3.jpg",
-            ];
+        prepareSlideContent: function () {
+            var pics = this.pics;
 
             this.$(".swiper-wrapper").html(template_slide({items:pics}));
         },
         initSwiper: function () {
             var mySwiper;
 
-            this.prepareImage();
+            this.prepareSlideContent();
             setTimeout(function () {
                 mySwiper = new Swiper(this.$('.swiper-container'), {
                     speed: 400,

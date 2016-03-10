@@ -23,9 +23,10 @@
     width: 61.8%; }
   .activity-choose-item .plan-details {
     float: left;
+    padding: 2em;
     width: 38.2%;
     height: 440px;
-    background: red; }
+    background: rgba(128, 128, 128, 0.22); }
   .activity-choose-item.pic-pull-right .pictures-shortcut {
     float: right; }
   .activity-choose-item.pic-pull-right .plan-details {
@@ -35,4 +36,7 @@
     height: 1px;
     clear: both; }
   .activity-choose-item .swiper-slide {
-    background-size: cover; }
+    background-size: cover;
+    transition: transform 1s; }
+    .activity-choose-item .swiper-slide:hover {
+      transform: scale(1.2); }
