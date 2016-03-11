@@ -1,4 +1,5 @@
 .swiper-container {
+  border-radius: 5px 0 0 5px;
   height: 440px; }
   .swiper-container .swiper-slide {
     background: gray; }
@@ -23,14 +24,22 @@
     width: 61.8%; }
   .activity-choose-item .plan-details {
     float: left;
-    padding: 2em;
+    padding: 1.5em;
     width: 38.2%;
     height: 440px;
-    background: rgba(128, 128, 128, 0.22); }
+    background: rgba(204, 204, 204, 0.22);
+    border-radius: 0 5px 5px 0; }
+    .activity-choose-item .plan-details .ui.tag {
+      margin-left: 1.5em; }
+    .activity-choose-item .plan-details p label {
+      color: rgba(0, 0, 0, 0.5); }
   .activity-choose-item.pic-pull-right .pictures-shortcut {
     float: right; }
   .activity-choose-item.pic-pull-right .plan-details {
-    float: left; }
+    float: left;
+    border-radius: 5px 0 0 5px; }
+  .activity-choose-item.pic-pull-right .swiper-container {
+    border-radius: 0 5px 5px 0; }
   .activity-choose-item:after {
     display: block;
     height: 1px;
@@ -42,7 +51,7 @@
       transform: scale(1.2); }
 
 .footer.segment {
-  padding: 5em 0em; }
+  padding: 2em 0em; }
 
 a.inverted.item {
   color: #fff; }
@@ -53,8 +62,8 @@ a.inverted.item {
 span.good-time {
   display: inline-block;
   margin: 0 auto;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background-image: url("/image/goodtime.jpg");
   background-size: contain;
   border-radius: 14px; }

@@ -1,5 +1,6 @@
 .swiper-container {
   //width: 600px;
+  border-radius: 5px 0 0 5px;
   height: 440px;
   .swiper-slide {
     background: gray;
@@ -31,10 +32,17 @@
   }
   .plan-details {
     float:left;
-    padding:2em;
+    padding:1.5em;
     width:38.2%;
     height: 440px;
-    background: transparentize(gray,0.78);
+    background: transparentize(#cccccc,0.78);
+    border-radius: 0 5px 5px 0;
+    .ui.tag{
+      margin-left: 1.5em;
+    }
+    p label{
+      color:transparentize(#000,0.5);
+    }
   }
   &.pic-pull-right{
     .pictures-shortcut{
@@ -42,6 +50,10 @@
     }
     .plan-details{
       float: left;
+      border-radius: 5px 0 0 5px;
+    }
+    .swiper-container{
+      border-radius:  0 5px 5px 0;
     }
   }
   &:after {
@@ -58,7 +70,7 @@
   }
 }
 .footer.segment {
-  padding: 5em 0em;
+  padding: 2em 0em;
 }
 a.inverted.item{
   color:#fff;
@@ -69,8 +81,8 @@ a.inverted.item{
 span.good-time{
   display: inline-block;
   margin: 0 auto;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background-image:url("/image/goodtime.jpg");
   background-size: contain;
   border-radius: 14px;
