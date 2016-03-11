@@ -10,7 +10,8 @@ define([
         idAttribute:"_id",
         defaults: {
             enable: true,
-            gender: 0
+            gender: 0,
+            name:""
         },
         toggle: function () {
             this.save({enable: !this.get("enable")});

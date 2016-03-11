@@ -19,6 +19,7 @@ define([
 
             this.$el.html(this.template(tplInfo));
             this.$("select[name=gender]").val(tplInfo.gender);
+            console.log(tplInfo);
             this.$("select[name=enable]").val(tplInfo.enable?'1':'0');
             this.prepareDialog();
 

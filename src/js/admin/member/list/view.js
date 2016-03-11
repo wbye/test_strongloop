@@ -17,11 +17,7 @@ define([
         },
         handleAddClick: function () {
             var view = new MemberDialogView({
-                model:new Member({
-                    name:'',
-                    enable:0,
-                    gender:0
-                }),
+                model:new Member(),
                 collection:this.collection
             }).render();
             $("body").append(view.$el);

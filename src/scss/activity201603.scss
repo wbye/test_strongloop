@@ -57,3 +57,21 @@
     }
   }
 }
+.footer.segment {
+  padding: 5em 0em;
+}
+a.inverted.item{
+  color:#fff;
+}
+.align-center{
+  text-align: center;
+}
+span.good-time{
+  display: inline-block;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background-image:url("/image/goodtime.jpg");
+  background-size: contain;
+  border-radius: 14px;
+}
