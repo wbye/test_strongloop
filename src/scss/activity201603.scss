@@ -1,3 +1,9 @@
+body,html{
+ height:100%;
+}
+#choose-list{
+  min-height:800px;
+}
 .swiper-container {
   //width: 600px;
   border-radius: 5px 0 0 5px;
@@ -32,6 +38,7 @@
   }
   .plan-details {
     float:left;
+    position: relative;
     padding:1.5em;
     width:38.2%;
     height: 440px;
@@ -42,6 +49,13 @@
     }
     p label{
       color:transparentize(#000,0.5);
+    }
+    .operation{
+      position: absolute;
+      width: 100%;
+      bottom:30px;
+      left:0;
+      text-align:center;
     }
   }
   &.pic-pull-right{
@@ -69,8 +83,15 @@
     }
   }
 }
+.footer-segment-warpper{
+  position: relative;
+  height: 180px;
+}
 .footer.segment {
+  position: absolute;
   padding: 2em 0em;
+  bottom:0;
+  width:100%;
 }
 a.inverted.item{
   color:#fff;

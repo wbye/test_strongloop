@@ -2,11 +2,13 @@ define([
     'swiper',
     'backbone',
     'tpl!./template.html',
+    'tpl!./template_2.html',
     'tpl!./template_slide.html',
     'underscore'
-], function (Swiper, Backbone, template,template_slide,_) {
+], function (Swiper, Backbone, template,template_2,template_slide,_) {
     return Backbone.View.extend({
-        template: template,
+        //template: template,
+        template:template_2,
         tagName: "div",
         className: "activity-choose-item",
         initialize: function (options) {
@@ -34,6 +36,7 @@ define([
                 this.pics = options.pics;
                 this.preloadImageResource();
             }
+            this.tplInfo = options||{};
         },
         preloadImageResource: function () {
             _.each(this.pics, function (item) {
@@ -60,7 +63,7 @@ define([
             return this;
         },
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.tplInfo));
             this.initSwiper();
 
             return this;

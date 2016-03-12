@@ -1,3 +1,9 @@
+body, html {
+  height: 100%; }
+
+#choose-list {
+  min-height: 800px; }
+
 .swiper-container {
   border-radius: 5px 0 0 5px;
   height: 440px; }
@@ -24,6 +30,7 @@
     width: 61.8%; }
   .activity-choose-item .plan-details {
     float: left;
+    position: relative;
     padding: 1.5em;
     width: 38.2%;
     height: 440px;
@@ -33,6 +40,12 @@
       margin-left: 1.5em; }
     .activity-choose-item .plan-details p label {
       color: rgba(0, 0, 0, 0.5); }
+    .activity-choose-item .plan-details .operation {
+      position: absolute;
+      width: 100%;
+      bottom: 30px;
+      left: 0;
+      text-align: center; }
   .activity-choose-item.pic-pull-right .pictures-shortcut {
     float: right; }
   .activity-choose-item.pic-pull-right .plan-details {
@@ -50,8 +63,15 @@
     .activity-choose-item .swiper-slide:hover {
       transform: scale(1.2); }
 
+.footer-segment-warpper {
+  position: relative;
+  height: 180px; }
+
 .footer.segment {
-  padding: 2em 0em; }
+  position: absolute;
+  padding: 2em 0em;
+  bottom: 0;
+  width: 100%; }
 
 a.inverted.item {
   color: #fff; }
