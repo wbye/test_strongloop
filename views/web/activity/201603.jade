@@ -2,6 +2,7 @@ doctype
 html
     head
         include ./../includes/head.jade
+        link(rel='stylesheet',type='text/css',href='/js/lib/PACE/themes/green/pace-theme-minimal.css')
         link(rel='stylesheet',type="text",href="/css/activity201603.css")
         link(rel='stylesheet',type="text",href="/js/lib/Swiper/dist/css/swiper.min.css")
     body
@@ -9,8 +10,8 @@ html
             div.ui.inverted.blue.segment.vertical
                 div.ui.container
                     div.ui.secondary.inverted.pointing.menu.borderless(style={"border":"none"})
-                        a.active.item Home
-                        a.item(href="/members") Members
+                        a.active.item 活动
+                        a.item(href="/members") 成员
 
                         div.menu.right(style="font-size:1.5em;line-height:1.5em;margin-left:3em;")  阳春三月，呼朋引伴，一起郊游吧!
                             //a.ui.inverted.button login in

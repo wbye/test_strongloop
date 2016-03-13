@@ -1,4 +1,5 @@
 var Member = require("./../model/member");
+var Activity = require("./../model/activity");
 var Config = require("./../config/StatusVar");
 
 module.exports = function (app) {
@@ -95,5 +96,25 @@ module.exports = function (app) {
     app.get(/^\/(\w+)(\/\w+)$/, function (req, res) {
         res.render("web/"+req.params[0]+req.params[1],{});
     });
+
+    app.get("/1.0/activity", function (req, res) {
+        Activity.find({},function (err,activities) {
+            res.send(activities);
+        });
+    });
+    app.put("/1.0/activity/:id", function (req,res) {
+        Activity.findById(req.params.id, function (err,member) {
+            if(err){
+                res.status(400).send({
+                    msg:'error'
+                });
+            }else{
+                member.update(req.body,function (err,status) {
+                    res.status(200).send(req.body);
+                });
+            }
+        });
+    });
+
 
 };

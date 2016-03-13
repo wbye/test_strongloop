@@ -18,7 +18,8 @@ var require  = {
         model:'common/model',
         collection:'common/collection',
         pace:'lib/PACE/pace',
-        swiper:'lib/Swiper/dist/js/swiper.min'
+        swiper:'lib/Swiper/dist/js/swiper.min',
+        q:"lib/q/q"
     },
     shim: {
         jquery: {

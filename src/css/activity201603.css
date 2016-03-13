@@ -19,7 +19,7 @@ body, html {
       background: #2185d0; }
 
 .activity-choose-item {
-  margin: 2em 0 3em 0; }
+  margin: 3em 0 4em 0; }
   .activity-choose-item:after {
     content: "";
     clear: both;
@@ -46,12 +46,28 @@ body, html {
       bottom: 30px;
       left: 0;
       text-align: center; }
-  .activity-choose-item.pic-pull-right .pictures-shortcut {
+    .activity-choose-item .plan-details .ui.vote {
+      position: relative; }
+    .activity-choose-item .plan-details .vote-sign {
+      display: inline-block;
+      width: 93px;
+      position: absolute;
+      left: 0;
+      color: red;
+      top: 10px;
+      opacity: 0;
+      transition: top 1s,color 1s,font-size 1s,opacity 1s;
+      text-align: center; }
+    .activity-choose-item .plan-details .vote-sign.show {
+      opacity: 1;
+      top: -30px;
+      font-size: 2em; }
+  .activity-choose-item.pic-pull-right .pictures-shortcut, .activity-choose-item:nth-child(2n) .pictures-shortcut {
     float: right; }
-  .activity-choose-item.pic-pull-right .plan-details {
+  .activity-choose-item.pic-pull-right .plan-details, .activity-choose-item:nth-child(2n) .plan-details {
     float: left;
     border-radius: 5px 0 0 5px; }
-  .activity-choose-item.pic-pull-right .swiper-container {
+  .activity-choose-item.pic-pull-right .swiper-container, .activity-choose-item:nth-child(2n) .swiper-container {
     border-radius: 0 5px 5px 0; }
   .activity-choose-item:after {
     display: block;
