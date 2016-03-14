@@ -107,13 +107,16 @@ define([
             setTimeout(function () {
                 this.hideAddOneAnimation();
             }.bind(this),1200);
+            this.$(".ui.button.vote").addClass("loading");
             this.model.save({
                 likes:currentVote
             },{
                 success: function () {
                     this.writeAlreadyVoteInfo();
+                    this.$(".ui.button.vote").removeClass("loading");
                 }.bind(this),
                 error: function () {
+                    this.$(".ui.button.vote").removeClass("loading");
                 }.bind(this)
             });
         },
@@ -127,7 +130,7 @@ define([
             var dataBase;
 
             if (window.openDatabase) {
-                dataBase = window.openDatabase("vote", "1.0", "ͶƱ��", 1024 * 1024, function () {
+                dataBase = window.openDatabase("vote", "1.0", "ͶƱ��", 1024 * 1024, function () {
                 });
                 return dataBase;
             }

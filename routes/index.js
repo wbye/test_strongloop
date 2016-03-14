@@ -109,7 +109,7 @@ module.exports = function (app) {
                     msg:'error'
                 });
             }else{
-                member.update(req.body,function (err,status) {
+                member.update({likes:++member.likes},function (err,status) {
                     res.status(200).send(req.body);
                 });
             }
