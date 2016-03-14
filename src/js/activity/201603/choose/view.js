@@ -129,10 +129,14 @@ define([
         getCurrentDatabase: function () {
             var dataBase;
 
-            if (window.openDatabase) {
-                dataBase = window.openDatabase("vote", "1.0", "ͶƱ��", 1024 * 1024, function () {
-                });
-                return dataBase;
+            try{
+                if (window.openDatabase) {
+                    dataBase = window.openDatabase("vote", "1.0", "ͶƱ��", 1024 * 1024, function () {
+                    });
+                    return dataBase;
+                }
+            }catch(e){
+                return null;
             }
 
             return null;
