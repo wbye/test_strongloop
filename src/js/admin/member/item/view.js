@@ -1,12 +1,15 @@
 define([
     'backbone',
     'tpl!./template.html',
+    'tpl!./template_new.html',
     'admin/member/dialog/view',
     'moment'
-], function (Backbone,template,MemberDialogView,moment) {
+], function (Backbone,template,template_new,MemberDialogView,moment) {
     return Backbone.View.extend({
-        tagName: "tr",
-        template:template,
+        tagName: "div",
+        //template:template,
+        template:template_new,
+        className:"column",
         events:{
             "click .button.edit":"handleEditClick",
             "click .button.delete":"handleDeleteClick",
@@ -32,7 +35,7 @@ define([
             var globalConfig = window.AppConfig;
 
             _.extend(tplInfo,{
-                createAt: new moment(tplInfo.createAt).format("YYYY-MM-DD HH:MM:SS"),
+                joinAt: new moment(tplInfo.createAt).format("YYYY/MM/DD"),
                 gender:globalConfig['Gender'][tplInfo.gender],
                 enable:tplInfo.enable
                 //enable:globalConfig['Enable'][tplInfo.enable?1:0],

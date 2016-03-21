@@ -10,7 +10,9 @@
     "body-parser": "^1.15.0",
     "browser-sync": "^2.9.12",
     "compression": "^1.6.1",
+    "connect-multiparty": "^2.0.0",
     "express": "^4.13.3",
+    "formidable": "^1.0.17",
     "gaze": "^0.5.1",
     "gm": "^1.21.1",
     "gulp": "^3.9.0",
@@ -27,6 +29,7 @@
     "kerberos": "0.0.18",
     "moment": "^2.11.1",
     "mongoose": "^4.3.6",
+    "multer": "^1.1.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "watch": "^0.16.0"

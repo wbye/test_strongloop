@@ -25,13 +25,15 @@ app.set("views","./views");
 //����ģ������
 app.set("view engine","jade");
 //set static
+routes(app);
+
 if(port===config.port){
     app.use(express.static(__dirname + '/src'));
     app.use(express.static(__dirname + '/files'));
     app.use(express.static(__dirname + '/uploads'));
 }
 
-routes(app);
+
 
 //���ü���˿�
 app.listen(port,function(){

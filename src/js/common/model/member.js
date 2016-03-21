@@ -11,7 +11,11 @@ define([
         defaults: {
             enable: true,
             gender: 0,
-            name:""
+            name:"",
+            career:"UI设计/前端开发",
+            desc:"这家伙很懒，没写个人说明。",
+            follows:"",
+            avatarUrl:"/image/steve.jpg"
         },
         toggle: function () {
             this.save({enable: !this.get("enable")});

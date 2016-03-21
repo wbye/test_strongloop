@@ -1,6 +1,9 @@
 #my-dialog .ui.image {
   min-height: 200px; }
 
+.member-list {
+  margin: 40px 0; }
+
 .ui.form.member {
   margin: 20px auto;
   height: 220px; }

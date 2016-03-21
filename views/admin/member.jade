@@ -5,13 +5,8 @@ html
         link(rel='stylesheet',type="text",href="/css/admin/member.css")
     body
         .ui.container
-            .ui.segment.padding
-                .ui.header
-                    h1 成员列表
-                    .sub.header 查看/编辑成员信息
             .member-list
     include ./includes/foot.jade
-    script(type="text/javascript",src="/js/lib/PACE/pace.js")
     script(type="text/javascript").
         window.AppConfig = !{Config};
     script(type="text/javascript",src="/js/main.js")

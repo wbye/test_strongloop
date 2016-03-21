@@ -1,0 +1,17 @@
+<div class="upload-main">
+    <div class="upload-icon-warpper">
+        <div class="upload-icon">
+        </div>
+        <div class="tips">点击图标，上传头像</div>
+    </div>
+    <div class="avatar-preview">
+        <div class="preview-item-250">250x250</div>
+        <div class="preview-item-126">126x126</div>
+        <div class="preview-item-50">50x50</div>
+        <div class="preview-item-10">10x10</div>
+    </div>
+    <form enctype="multipart/form-data" method="post" name="fileinfo" action="/1.0/upload/avatar" target="avatarImage">
+        <input type="file" name="upload-avatar"/>
+    </form>
+    <iframe name="avatarImage"></iframe>
+</div>

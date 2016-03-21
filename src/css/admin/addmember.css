@@ -1,0 +1,21 @@
+#member-add-warpper {
+  margin: 40px 0; }
+  #member-add-warpper .ui.button.submit {
+    margin: 20px 0; }
+  #member-add-warpper .ui.button.clear {
+    margin-left: 10px; }
+  #member-add-warpper .upload-icon {
+    display: inline-block;
+    width: 127px;
+    height: 127px;
+    background: #fff url("/image/avatar_default.png") no-repeat center center; }
+  #member-add-warpper .upload-icon-warpper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer; }
+  #member-add-warpper .upload-main input {
+    display: none; }
+  #member-add-warpper .avatar-preview {
+    display: none; }

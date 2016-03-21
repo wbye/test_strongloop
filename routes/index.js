@@ -1,6 +1,18 @@
 var Member = require("./../model/member");
 var Activity = require("./../model/activity");
 var Config = require("./../config/StatusVar");
+//var multipart = require('connect-multiparty');
+//var multer = require('multer');
+//var upload = multer({
+//    dest: __dirname + '/uploads/',
+//    onFileUploadData: function (file, data) {
+//        console.log(data.length + ' of ' + file.fieldname + ' arrived');
+//    },
+//    onFileUploadComplete: function (file) {
+//        console.log(file.fieldname + ' uploaded to  ' + file.path);
+//    }
+//});
+var formidable = require("formidable");
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
@@ -24,6 +36,11 @@ module.exports = function (app) {
                 members:members,
                 Config:JSON.stringify(Config)
             });
+        });
+    });
+    app.get("/members/add", function (req,res) {
+        res.render("admin/addmember",{
+
         });
     });
     app.get("/admin/member", function (req,res) {
@@ -118,6 +135,27 @@ module.exports = function (app) {
             }
         });
     });
+    app.post("/1.0/upload/avatar",function (req,res) {
+        //console.log(req.body);
+        //res.send(req.body);
+        //console.log(req.file);
+        var form = new formidable.IncomingForm();
+        form.parse(req, function(err, fields, files) {
+            res.send({yeah:"ok"});
+            console.log(files);
+            require("fs").writeFile(__dirname+"/../upload/avatar.jpg",files['upload-avatar'], function (err) {
+                console.log(arguments);
+            });
+        });
 
+
+        //console.log(req);
+        //require("fs").writeFile("/images/test.jpg",req.files, function (err) {
+        //    console.log(arguments);
+        //})
+        //for(var i in req.body){
+        //    console.log(i);
+        //}
+    });
 
 };

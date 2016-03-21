@@ -1,17 +1,18 @@
 define([
     'backbone',
     'tpl!./template.html',
+    'tpl!./template_new.html',
     'tpl!./template_empty.html',
     'admin/member/item/view',
     'admin/member/dialog/view',
     'common/model/member',
-], function (Backbone,template,template_empty,MemberItemView,MemberDialogView,Member) {
+], function (Backbone,template,template_new,template_empty,MemberItemView,MemberDialogView,Member) {
     return Backbone.View.extend({
-        tagName: "table",
-        template:template,
+        tagName: "div",
+        //template:template,
+        template:template_new,
         template_empty:template_empty,
-        className:"ui padded celled table",
-        el:$(".member-list"),
+        className:"ui four column grid",
         events:{
             "click #add-user":"handleAddClick"
         },
@@ -32,19 +33,21 @@ define([
         },
         render: function () {
             this.$el.html(this.template());
+
+            return this;
         },
         emptyCheck: function () {
             if(this.collection.length===0){
-                this.$("tbody").html(this.template_empty());
+                this.$el.html(this.template_empty());
             }else{
-                this.$("tbody tr.empty-data").remove();
+                //this.$el.remove();
             }
         },
         addOne: function(item) {
 
             var view = new MemberItemView({model: item});
 
-            this.$("tbody").append(view.render().el);
+            this.$el.append(view.render().el);
         },
         addAll: function() {
             this.collection.each(this.addOne, this);
