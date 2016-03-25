@@ -12,6 +12,7 @@
     "compression": "^1.6.1",
     "connect-multiparty": "^2.0.0",
     "express": "^4.13.3",
+    "express-uploader": "^0.1.2",
     "formidable": "^1.0.17",
     "gaze": "^0.5.1",
     "gm": "^1.21.1",

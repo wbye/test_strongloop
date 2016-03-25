@@ -1,28 +1,10 @@
 var Member = require("./../model/member");
 var Activity = require("./../model/activity");
 var Config = require("./../config/StatusVar");
-//var multipart = require('connect-multiparty');
-//var multer = require('multer');
-//var upload = multer({
-//    dest: __dirname + '/uploads/',
-//    onFileUploadData: function (file, data) {
-//        console.log(data.length + ' of ' + file.fieldname + ' arrived');
-//    },
-//    onFileUploadComplete: function (file) {
-//        console.log(file.fieldname + ' uploaded to  ' + file.path);
-//    }
-//});
-var formidable = require("formidable");
+var apiVersion = require("./../config/Server").apiVersion;
 
 module.exports = function (app) {
     app.get("/", function (req,res) {
-        Member.find({"enable":true},function (err,members) {
-            res.render("web/dashboard",{
-                members:members
-            });
-        });
-    });
-    app.get("/admin", function (req,res) {
         Member.find(function (err,members) {
             res.render("admin/member",{
                 members:members,
@@ -30,6 +12,7 @@ module.exports = function (app) {
             });
         });
     });
+
     app.get("/members", function (req,res) {
         Member.find(function (err,members) {
             res.render("admin/member",{
@@ -39,58 +22,9 @@ module.exports = function (app) {
         });
     });
     app.get("/members/add", function (req,res) {
-        res.render("admin/addmember",{
-
-        });
-    });
-    app.get("/admin/member", function (req,res) {
-        res.render("admin/member");
-    });
-    app.get("/1.0/member", function (req,res) {
-        Member.find({},function (err,members) {
-            res.send(members);
-        });
-    });
-    app.post("/1.0/member", function (req,res) {
-        Member.create(req.body, function (err,member) {
-            if(err){
-                res.status(400).send({
-                    msg:'error'
-                });
-            }else{
-                res.status(200).send({
-                    msg:'success'
-                });
-            }
-        });
+        res.render("admin/addmember");
     });
 
-    app.delete("/1.0/member/:id", function (req,res) {
-        Member.findById(req.params.id, function (err,member) {
-            if(err){
-                res.status(400).send({
-                    msg:'error'
-                });
-            }else{
-                member.remove(function (err,product) {
-                   res.status(200).send(product);
-                });
-            }
-        });
-    });
-    app.put("/1.0/member/:id", function (req,res) {
-        Member.findById(req.params.id, function (err,member) {
-            if(err){
-                res.status(400).send({
-                    msg:'error'
-                });
-            }else{
-                member.update(req.body,function (err,status) {
-                    res.status(200).send(status);
-                });
-            }
-        });
-    });
     app.get("/checkSignature", function (req,res) {
         var token = 'wbyealiyun123';
         //微信加密签名
@@ -110,52 +44,10 @@ module.exports = function (app) {
         }
     });
 
+    //通用正则匹配
     app.get(/^\/(\w+)(\/\w+)$/, function (req, res) {
-        res.render("web/"+req.params[0]+req.params[1],{});
+        if(req.params!==apiVersion){
+            res.render("web/"+req.params[0]+req.params[1],{});
+        }
     });
-
-    app.get("/1.0/activity", function (req, res) {
-        Activity.find({},function (err,activities) {
-            res.send(activities);
-        });
-    });
-    app.put("/1.0/activity/:id", function (req,res) {
-        Activity.findById(req.params.id, function (err,member) {
-            var likes = member.likes;
-
-            member.likes++;
-            if(err){
-                res.status(400).send({
-                    msg:'error'
-                });
-            }else{
-                member.update({likes:member.likes},function (err,status) {
-                    res.status(200).send({likes:member.likes});
-                });
-            }
-        });
-    });
-    app.post("/1.0/upload/avatar",function (req,res) {
-        //console.log(req.body);
-        //res.send(req.body);
-        //console.log(req.file);
-        var form = new formidable.IncomingForm();
-        form.parse(req, function(err, fields, files) {
-            res.send({yeah:"ok"});
-            console.log(files);
-            require("fs").writeFile(__dirname+"/../upload/avatar.jpg",files['upload-avatar'], function (err) {
-                console.log(arguments);
-            });
-        });
-
-
-        //console.log(req);
-        //require("fs").writeFile("/images/test.jpg",req.files, function (err) {
-        //    console.log(arguments);
-        //})
-        //for(var i in req.body){
-        //    console.log(i);
-        //}
-    });
-
 };

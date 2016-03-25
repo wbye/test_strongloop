@@ -19,11 +19,11 @@ define([
             this.$("input[type=file]").trigger("click");
         },
         handleInputChange: function () {
-            //var formData = new FormData(this.$("form"));
+            var formData = new FormData();
 
-            this.$("form").submit();
-            //formData.append("files",formData);
-            //this.model.upload(formData);
+            //this.$("form").submit();
+            formData.append("files",this.$("input")[0]);
+            this.model.upload(formData);
         }
     });
 });

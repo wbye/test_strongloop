@@ -5,37 +5,27 @@ var app = express();
 var config = require("./config/Server");
 var port = process.env.PORT||config.port;
 var routes = require("./routes");
-var Member = require("./model/member");
 var compression = require('compression');
-var db;
-
-
-mongoose.connect('mongodb://localhost:27017/test');
-db = mongoose.connection;
+var db = mongoose.connect('mongodb://localhost:27017/test').connection;
+var API = require("./api");
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     // we're connected!
     console.log("we connect!")
 });
-//������ͼĿ¼
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views","./views");
-//����ģ������
 app.set("view engine","jade");
-//set static
 routes(app);
-
+API(app);
 if(port===config.port){
     app.use(express.static(__dirname + '/src'));
     app.use(express.static(__dirname + '/files'));
     app.use(express.static(__dirname + '/uploads'));
-}
+};
 
-
-
-//���ü���˿�
 app.listen(port,function(){
    console.log("node server run at "+port);
 });
