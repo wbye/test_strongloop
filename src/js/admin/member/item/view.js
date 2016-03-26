@@ -3,8 +3,9 @@ define([
     'tpl!./template.html',
     'tpl!./template_new.html',
     'admin/member/dialog/view',
-    'moment'
-], function (Backbone,template,template_new,MemberDialogView,moment) {
+    'moment',
+    'semanticUI'
+], function (Backbone,template,template_new,MemberDialogView,moment,semanticUI) {
     return Backbone.View.extend({
         tagName: "div",
         //template:template,
