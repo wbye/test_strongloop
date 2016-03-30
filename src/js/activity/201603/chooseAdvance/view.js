@@ -23,8 +23,9 @@ define([
             image.onload = function () {
                 //加载完成
                 target.parent(".swiper-slide").css("backgroundImage","url("+realSrc+")");
+                target.fadeOut(200);
             }
-            target.fadeOut(400);
+
         },
         userGaussFuzzy:function (imageTag,canvasTag) {
             StackBlur.image(imageTag, canvasTag, 50, false);
