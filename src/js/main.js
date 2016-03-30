@@ -19,7 +19,8 @@ var require  = {
         collection:'common/collection',
         pace:'lib/PACE/pace',
         swiper:'lib/Swiper/dist/js/swiper.min',
-        q:"lib/q/q"
+        q:"lib/q/q",
+        stackblur:"lib/stackblur-canvas/dist/stackblur.min"
     },
     shim: {
         jquery: {

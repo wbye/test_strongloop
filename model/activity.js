@@ -3,6 +3,7 @@ var ActivitySchema = new mongoose.Schema({
     name:String,
     likes:Number,
     pics:[String],
+    spics:[String],
     title:String,
     tags:[String],
     time:String,

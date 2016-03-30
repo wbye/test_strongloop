@@ -1,6 +1,6 @@
 define([
     'backbone',
-    'activity/201603/choose/view',
+    'activity/201603/chooseAdvance/view',
 ], function (Backbone,ChooseView) {
     return Backbone.View.extend({
         el:$("#choose-list"),
