@@ -48,7 +48,7 @@ gulp.task('node', function (complete) {
 
     supervisor("app.js",{
         args: ["--dev"],
-        watch: ["app",'routes'],
+        watch: ["app",'routes','api'],
         ignore: ["tasks", "src", "node_modules", "public", "views"],
         pollInterval: 500,
         extensions: ["js"],

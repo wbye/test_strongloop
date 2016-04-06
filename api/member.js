@@ -57,6 +57,7 @@ module.exports = function (app) {
         });
     });
     app.post("/1.0/upload/avatar", function (req, res) {
+        console.log(req.headers['content-type']);
         //console.log(req.body);
         //res.send(req.body);
         //console.log(req.file);
