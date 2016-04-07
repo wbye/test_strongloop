@@ -1,5 +1,4 @@
 var Member = require("./../model/member");
-var Uploader = require('express-uploader');
 
 module.exports = function (app) {
     app.get("/1.0/member", function (req, res) {
@@ -56,44 +55,6 @@ module.exports = function (app) {
             }
         });
     });
-    app.post("/1.0/upload/avatar", function (req, res) {
-        console.log(req.headers['content-type']);
-        //console.log(req.body);
-        //res.send(req.body);
-        //console.log(req.file);
-        //var form = new formidable.IncomingForm();
-        //form.parse(req, function(err, fields, files) {
-        //    res.send({yeah:"ok"});
-        //    console.log(files);
-        //    require("fs").writeFile(__dirname+"/../upload/avatar.jpg",files['upload-avatar'], function (err) {
-        //        console.log(arguments);
-        //    });
-        //});
-
-
-        //console.log(req);
-        //require("fs").writeFile("/images/test.jpg",req.files, function (err) {
-        //    console.log(arguments);
-        //})
-        //for(var i in req.body){
-        //    console.log(i);
-        //}
-
-        var uploader = new Uploader({
-            debug: true,
-            validate: true,
-            thumbnails: true,
-            thumbToSubDir: true,
-            tmpDir: __dirname + '/tmp',
-            publicDir: __dirname + '/public',
-            uploadDir: __dirname + '/public/files',
-            uploadUrl: '/files/',
-            thumbSizes: [140, [100, 100]]
-        });
-        uploader.uploadFile(req, function (data) {
-            console.log(data);
-            res.send(JSON.stringify(data), {'Content-Type': 'text/plain'}, 200);
-        });
+    app.post("/1.0/upload/avatar", function (req, res,next) {
     });
-
 }

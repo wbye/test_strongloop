@@ -23,7 +23,7 @@ API(app);
 if(port===config.port){
     app.use(express.static(__dirname + '/src'));
     app.use(express.static(__dirname + '/files'));
-    app.use(express.static(__dirname + '/uploads'));
+    app.use(express.static(__dirname + '/upload'));
 };
 
 app.listen(port,function(){
