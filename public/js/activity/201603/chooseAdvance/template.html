@@ -1,0 +1,44 @@
+<div class="pictures-shortcut">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <% for (var i =0; i < pics.length ; i++ ){%>
+            <div class="swiper-slide">
+                <img class="pre-image" src="<%= spics[i]%>" data-src="<%= pics[i]%>" />
+                <!--<canvas></canvas>-->
+            </div>
+            <%}%>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div class="plan-details">
+    <h3 class="ui header"><a class="item"><%= title%></a></h3>
+    <p class="tags">
+        <% _.each(tags,function(tag){ %>
+        <a class="ui green tag label"><%= tag %></a>
+        <%})%>
+    </p>
+    <p class="better-ranger-time">
+        <label>最佳时间：</label><%= time%>
+    </p>
+    <p class="location">
+        <label>地点：<%= address %></label>
+    </p>
+    <p class="cost">
+        <label>费用：</label> <%= cost %>
+    </p>
+    <p class="place-introduce">
+        <label>景点介绍：</label><%= introduce%></span>
+    </p>
+
+    <div class="operation">
+        <div tabindex="0" class="ui labeled button vote">
+            <div class="ui red button"><i class="heart icon"></i></div>
+            <a class="ui basic red left pointing label"><%= likes%></a>
+            <span class="vote-sign"><i class="heart icon"></i>+1</span>
+        </div>
+        <a href="/members">
+            <div class="ui button primary">立即参加</div>
+        </a>
+    </div>
+</div>

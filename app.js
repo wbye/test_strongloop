@@ -8,6 +8,8 @@ var routes = require("./routes");
 var compression = require('compression');
 var db = mongoose.connect('mongodb://localhost:27017/test').connection;
 var API = require("./api");
+var runType = process.argv[2]||'dev';
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     // we're connected!
@@ -21,7 +23,13 @@ app.set("view engine","jade");
 routes(app);
 API(app);
 if(port===config.port){
-    app.use(express.static(__dirname + '/src'));
+    if(runType.indexOf("prev")!==-1) {
+        app.use(express.static(__dirname + '/preview'));
+    }else if(runType.indexOf("pro")!==-1){
+        app.use(express.static(__dirname + '/public'));
+    }else{
+        app.use(express.static(__dirname + '/src'));
+    }
     app.use(express.static(__dirname + '/files'));
     app.use(express.static(__dirname + '/upload'));
 };

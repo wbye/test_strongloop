@@ -2,7 +2,6 @@ var gulp =require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require("gulp-sass");
 var notify = require("gulp-notify");
-var jade = require("gulp-jade");
 var config = require('./../../config/Server');
 var exec = require("child_process").exec;
 var supervisor = require("gulp-supervisor");
@@ -20,8 +19,7 @@ gulp.task('serve', ['node','sass'], function() {
     });
 
     gulp.watch("src/scss/**/*.scss", ['sass']);
-    gulp.watch("src/js/**/*.jade",['jade']);
-    gulp.watch(["src/js/**/*.js","views/**/*.jade","src/js/**/*.html"]).on('change', browserSync.reload);
+    gulp.watch(["src/js/**/*.js","src/js/**/*.html"]).on('change', browserSync.reload);
 });
 
 /**
@@ -36,18 +34,12 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task("jade", function () {
-   return gulp.src('src/js/**/*.jade')
-       .pipe(jade({
-           pretty: true
-       }))
-       .pipe(gulp.dest("src/js/"));
-});
 
 gulp.task('node', function (complete) {
-
+    console.log(process.argv[3]);
+    var runType = process.argv[3]||'--dev';
     supervisor("app.js",{
-        args: ["--dev"],
+        args: [runType],
         watch: ["app",'routes','api'],
         ignore: ["tasks", "src", "node_modules", "public", "views"],
         pollInterval: 500,

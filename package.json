@@ -35,7 +35,9 @@
     "run-sequence": "^1.1.4",
     "watch": "^0.16.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-requirejs-optimize": "^0.3.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
