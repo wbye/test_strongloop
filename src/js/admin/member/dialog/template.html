@@ -1,34 +1,42 @@
-
 <div class="header">添加</div>
 <div class="content">
-  <div class="ui form member">
-    <div class="left-info">
-      <div class="field">
-        <label>昵称</label>
-        <input name="member-name" value="<%=name%>"/>
-      </div>
-      <div class="field">
-        <label>性别</label>
-        <select name="gender" value="<%=gender%>">
-          <option value="0">保密</option>
-          <option value="1">男</option>
-          <option value="2">女</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>状态</label>
-        <select name="enable" value="<%=enable%>">
-          <option value="1">启用</option>
-          <option value="0">禁用</option>
-        </select>
-      </div>
+    <div class="ui form member">
+        <div class="field">
+            <label>昵称</label>
+            <input name="name" placeholder="起个名字？"/>
+        </div>
+        <div class="field">
+            <label>性别</label>
+            <select name="gender">
+                <option value="0">保密</option>
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>状态</label>
+            <select name="enable">
+                <option value="1">启用</option>
+                <option value="0">禁用</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>邮箱</label>
+            <input placeholder="你的邮箱是什么？方便以后联系你" name="email" type="text" >
+        </div>
+        <div class="field">
+            <label>职业</label>
+            <select name="career">
+                <option value="0">高大上UI设计</option>
+                <option value="1">苦逼前端开发</option>
+                <option value="2">后端攻城师</option>
+                <option value="3">吊吊的安卓开发</option>
+                <option value="4">iOS开发</option>
+            </select>
+        </div>
     </div>
-    <div class="right-info">
-      <div class="ui image"><img src="http://www.placehold.it/200x200"/></div>
-    </div>
-  </div>
 </div>
 <div class="actions">
-  <div class="ui button cancel">取消</div>
-  <div class="ui button primary approve">创建</div>
+    <div class="ui button cancel">取消</div>
+    <div class="ui button primary approve">创建</div>
 </div>

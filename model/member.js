@@ -8,7 +8,9 @@ var MemberSchema = new mongoose.Schema({
     },
     updateAt:{
         type:Date,default:Date.now
-    }
+    },
+    email:String,
+    career:String
 });
 var Member = mongoose.model("Member",MemberSchema);
 

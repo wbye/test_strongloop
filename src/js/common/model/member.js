@@ -12,10 +12,11 @@ define([
             enable: true,
             gender: 0,
             name:"",
-            career:"UI设计/前端开发",
+            career:0,
             desc:"这家伙很懒，没写个人说明。",
             follows:"",
-            avatarUrl:"/image/steve.jpg"
+            avatarUrl:"/image/steve.jpg",
+            email:""
         },
         toggle: function () {
             this.save({enable: !this.get("enable")});

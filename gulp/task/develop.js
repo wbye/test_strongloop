@@ -40,7 +40,7 @@ gulp.task('node', function (complete) {
     var runType = process.argv[3]||'--dev';
     supervisor("app.js",{
         args: [runType],
-        watch: ["app",'routes','api'],
+        watch: ["app",'routes','api','model'],
         ignore: ["tasks", "src", "node_modules", "public", "views"],
         pollInterval: 500,
         extensions: ["js"],

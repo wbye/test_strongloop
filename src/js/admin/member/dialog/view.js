@@ -18,24 +18,40 @@ define([
             var tplInfo = this.model.toJSON();
 
             this.$el.html(this.template(tplInfo));
-            this.$("select[name=gender]").val(tplInfo.gender);
-            console.log(tplInfo);
-            this.$("select[name=enable]").val(tplInfo.enable?'1':'0');
+            this.setValue(_.pick(tplInfo, 'enable', 'gender','name','career','email'));
+            this.$el.find("select").dropdown();
             this.prepareDialog();
 
             return  this;
         },
         getValue: function () {
-            var name = this.$("input[name='member-name']").val();
-            var gender = this.$("select[name=gender]").val();
-            var enable = this.$("select[name=enable]").val();
+            var info = {};
 
-            name = name.trim();
-            if(name!==''){
-                this.model.set("name",name);
-            }
-            this.model.set("gender",parseInt(gender));
-            this.model.set("enable",parseInt(enable)?true:false);
+            this.$("input,select").each(function (i, el) {
+                if (el.name === 'createAt' || el.name === 'expiredAt') {
+                    info[el.name] = $(el).val();
+                } else {
+                    info[el.name] = $(el).val();
+                }
+            });
+
+            return info;
+
+        },
+        setValue: function (info) {
+            var self = this;
+            info = info || {};
+            _.each(info, function (value, key, item) {
+
+                console.log(value,key);
+                if(key==='gender'||key==='career'){
+                    self.$el.find("select[name=" + key + "]").val(value);
+                }else if(key==='enable'){
+                    self.$el.find("select[name=" + key + "]").val(value?"1":"0");
+                }else{
+                    self.$el.find("input[name=" + key + "]").val(value);
+                }
+            });
         },
         prepareDialog: function () {
             var self = this;
@@ -55,9 +71,9 @@ define([
             this.$el.modal({
                 //blurring: true,
                 onApprove: function ($el) {
-                    self.getValue();
+                    var info = self.getValue();
 
-                    self.model.save(null,{
+                    self.model.save(info,{
                         success: function () {
                             if(self.collection){
                                 self.collection.fetch();
@@ -68,7 +84,7 @@ define([
                         error: function () {
                             console.log("fail");
                         },
-                        parse:false
+                        parse:false,
                     });
                     //if(!self.model.isValid()){
                     //    alert("名字必填");
@@ -79,7 +95,6 @@ define([
                 onDeny: function ($el) {
                 }
             });
-            this.$el.find(".dropdown,select").dropdown();
         },
         showDialog: function () {
             this.$el.modal("show").modal("refresh");

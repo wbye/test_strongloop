@@ -1,15 +1,13 @@
 define([
     'backbone',
-    'tpl!./template.html',
     'tpl!./template_new.html',
     'admin/member/dialog/view',
     'moment',
     'semanticUI'
-], function (Backbone,template,template_new,MemberDialogView,moment,semanticUI) {
+], function (Backbone,template,MemberDialogView,moment,semanticUI) {
     return Backbone.View.extend({
         tagName: "div",
-        //template:template,
-        template:template_new,
+        template:template,
         className:"column",
         events:{
             "click .button.edit":"handleEditClick",
@@ -21,7 +19,7 @@ define([
             this.listenTo(this.model,"destroy",this.remove);
         },
         handleDeleteClick: function () {
-            this.model.destroy();
+            //this.model.destroy();
         },
         handleEditClick: function () {
             var view = new MemberDialogView({
@@ -38,14 +36,18 @@ define([
             _.extend(tplInfo,{
                 joinAt: new moment(tplInfo.createAt).format("YYYY/MM/DD"),
                 gender:globalConfig['Gender'][tplInfo.gender],
-                enable:tplInfo.enable
-                //enable:globalConfig['Enable'][tplInfo.enable?1:0],
+                enable:tplInfo.enable,
+                avatarUrl:tplInfo.gender==="0"?"/image/elyse.png":(tplInfo.gender==="1"?"/image/steve.jpg":"/image/jenny.jpg"),
+                career:globalConfig['Career'][tplInfo.career]
             });
             this.$el.html(this.template(tplInfo));
             if(tplInfo.enable){
                 this.$("input[type=checkbox]").attr("checked","checked");
             }
             this.$el.find(".checkbox").checkbox();
+            this.$('.ui.card .image').dimmer({
+                on: 'hover'
+            });
             //render dropdown
             return this;
         },

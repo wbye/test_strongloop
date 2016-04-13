@@ -1,17 +1,13 @@
 define([
     'backbone',
-    'tpl!./template.html',
-    'tpl!./template_new.html',
-    'tpl!./template_empty.html',
     'admin/member/item/view',
     'admin/member/dialog/view',
     'common/model/member',
-], function (Backbone,template,template_new,template_empty,MemberItemView,MemberDialogView,Member) {
+    'tpl!./template_empty.html'
+], function (Backbone,MemberItemView,MemberDialogView,Member,template_empty) {
     return Backbone.View.extend({
-        tagName: "div",
-        //template:template,
-        template:template_new,
         template_empty:template_empty,
+        tagName: "div",
         className:"ui four column grid",
         events:{
             "click #add-user":"handleAddClick"
@@ -32,13 +28,11 @@ define([
             this.collection.fetch();
         },
         render: function () {
-            this.$el.html(this.template());
-
             return this;
         },
         emptyCheck: function () {
             if(this.collection.length===0){
-                this.$el.html(this.template_empty());
+                //this.$el.html(this.template_empty());
             }else{
                 //this.$el.remove();
             }

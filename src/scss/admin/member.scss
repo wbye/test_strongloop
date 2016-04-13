@@ -7,8 +7,8 @@
   margin: 40px 0;
 }
 .ui.form.member{
-  margin: 20px auto;
-  height:220px;
+  //margin: 20px auto;
+  //height:220px;
   .left-info{
     float: left;
     width: 400px;
@@ -24,4 +24,8 @@
     display: block;
     clear: both;
   }
+}
+.ui.button.add-member{
+  margin:0 auto;
+  float: right;
 }
