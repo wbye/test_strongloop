@@ -2,8 +2,9 @@ define([
     'backbone',
     'tpl!./template.html',
     'jquery',
-    'underscore'
-], function (Backbone,template,jQuery,_) {
+    'underscore',
+    'Logger'
+], function (Backbone,template,jQuery,_,Logger) {
     return Backbone.View.extend({
         template:template,
         tagName:"div",
@@ -18,7 +19,7 @@ define([
             var tplInfo = this.model.toJSON();
 
             this.$el.html(this.template(tplInfo));
-            this.setValue(_.pick(tplInfo, 'enable', 'gender','name','career','email'));
+            this.setValue(_.pick(tplInfo, 'enable', 'gender','name','career','email','desc'));
             this.$el.find("select").dropdown();
             this.prepareDialog();
 
@@ -42,8 +43,6 @@ define([
             var self = this;
             info = info || {};
             _.each(info, function (value, key, item) {
-
-                console.log(value,key);
                 if(key==='gender'||key==='career'){
                     self.$el.find("select[name=" + key + "]").val(value);
                 }else if(key==='enable'){
@@ -79,10 +78,10 @@ define([
                                 self.collection.fetch();
                             }
                             self.$el.modal("hide");
-                            console.log("success");
+                            Logger.success("更新成功");
                         },
                         error: function () {
-                            console.log("fail");
+                            Logger.success("更新失败");
                         },
                         parse:false,
                     });

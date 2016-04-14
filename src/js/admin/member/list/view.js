@@ -25,7 +25,9 @@ define([
             this.listenTo(this.collection,'add',this.addOne);
             this.listenTo(this.collection, 'reset', this.addAll);
             this.listenTo(this.collection, 'all', this.emptyCheck);
-            this.collection.fetch();
+            this.collection.fetch({
+                reset:true
+            });
         },
         render: function () {
             return this;
@@ -45,6 +47,7 @@ define([
         },
         addAll: function() {
             this.collection.each(this.addOne, this);
+            $(".ui.button.add-member").fadeIn();
         }
     });
 });

@@ -11,13 +11,12 @@ require([
     }).render();
 
     memberListView.$el.appendTo($(".member-list"));
-
-
-
+    
     //bind click add
     $(".add-member").on("click", function () {
         var view = new MemberDialogView({
-            model: new Member()
+            model: new Member(),
+            collection:members
         }).render();
         $("body").append(view.$el);
 

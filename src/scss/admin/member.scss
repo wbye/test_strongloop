@@ -1,3 +1,5 @@
+@import "./logger";
+
 #my-dialog{
   .ui.image{
     min-height: 200px;
@@ -26,6 +28,7 @@
   }
 }
 .ui.button.add-member{
+  display: none;
   margin:0 auto;
   float: right;
 }
