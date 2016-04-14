@@ -10,8 +10,6 @@
     modules: [{
         name: "activity/activity201603"
     }, {
-        name: "admin/member/add"
-    }, {
         name: "admin/member/index"
     }]
 })

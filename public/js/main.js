@@ -20,7 +20,10 @@ var require  = {
         pace:'lib/PACE/pace',
         swiper:'lib/Swiper/dist/js/swiper.min',
         q:"lib/q/q",
-        stackblur:"lib/stackblur-canvas/dist/stackblur.min"
+        stackblur:"lib/stackblur-canvas/dist/stackblur.min",
+        pnotify:"lib/pnotify/dist/pnotify",
+        "pnotify.buttons":"lib/pnotify/dist/pnotify.buttons",
+        Logger:"common/Logger"
     },
     shim: {
         jquery: {
@@ -29,6 +32,12 @@ var require  = {
         },
         semanticUI:{
             deps:['jquery']
+        },
+        pnotify:{
+            deps:['jquery']
+        },
+        "pnotify.buttons":{
+            deps:['pnotify']
         }
     }
 };
