@@ -11,7 +11,9 @@ module.exports = function (app,upload) {
             name: req.body.name,
             gender: req.body.gender,
             enable: req.body.enable,
-            career : req.body.career
+            career : req.body.career,
+            desc:req.body.desc,
+            member: req.body.email
         });
 
         member.save(req.body, function (err) {
@@ -51,6 +53,8 @@ module.exports = function (app,upload) {
                 member.enable = req.body.enable;
                 member.email = req.body.email;
                 member.career = req.body.career;
+                member.desc = req.body.desc
+
 
                 member.save(function (err, status) {
                     res.status(200).send(status);
