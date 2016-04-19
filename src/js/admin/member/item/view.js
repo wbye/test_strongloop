@@ -19,7 +19,7 @@ define([
             this.listenTo(this.model,"destroy",this.remove);
         },
         handleDeleteClick: function () {
-            //this.model.destroy();
+            this.model.destroy();
         },
         handleEditClick: function () {
             var view = new MemberDialogView({
