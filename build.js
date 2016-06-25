@@ -11,5 +11,7 @@
         name: "activity/activity201603"
     }, {
         name: "admin/member/index"
+    },{
+        name:"24inshanghai"
     }]
 })

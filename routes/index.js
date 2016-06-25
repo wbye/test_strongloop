@@ -50,4 +50,10 @@ module.exports = function (app) {
             res.render("web/"+req.params[0]+req.params[1],{});
         }
     });
+    app.get("/24",function(req,res){
+        res.render("web/24inshanghai")
+    });
+    app.get("/24inshanghai",function(req,res){
+        res.render("web/24inshanghai")
+    });
 };

@@ -1,0 +1,28 @@
+doctype
+html
+	head
+		include ./includes/head.jade
+		link(rel='stylesheet',type='text/css',href='/js/lib/PACE/themes/green/pace-theme-minimal.css')
+		link(rel='stylesheet',type="text",href="/css/24inshanghai.css")
+	body
+		div.ui.grid.container
+			div#header.row
+				div.column
+					div.ui.search
+						div.ui.icon.input
+							input.prompt(type="text",placeholder='Search...')
+							i.search.icon
+						div.ui.pull-right
+							div.ui.button.primary.add 新增
+			div#content.row
+				div.column
+					table.ui.table#members-warpper
+						thead
+							th 姓名
+							th 手机号
+							th QQ/微信
+							th 最新地址
+						tbody
+		include ./includes/foot.jade
+		script(type="text/javascript",src="/js/main.js")
+		script(type="text/javascript",src="/js/lib/requirejs/require.js",data-main="24inshanghai/24inshanghai.js")

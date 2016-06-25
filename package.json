@@ -28,6 +28,7 @@
     "http-server": "^0.8.5",
     "jade": "^1.11.0",
     "kerberos": "0.0.18",
+    "lodash": "^4.13.1",
     "moment": "^2.11.1",
     "mongoose": "^4.3.6",
     "multer": "^1.1.0",
