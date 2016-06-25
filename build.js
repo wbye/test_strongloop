@@ -12,6 +12,6 @@
     }, {
         name: "admin/member/index"
     },{
-        name:"24inshanghai"
+        name:"24inshanghai/24inshanghai"
     }]
 })
